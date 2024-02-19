@@ -1,0 +1,55 @@
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Mon Feb 19 15:54:26 2024 from 3.16.146.5
+[ec2-user@ip-10-2-11-76 ~]$ mysql -u admin -h udacity-database-1-replica.cwafpaulotel.us-east-2.rds.amazonaws.com -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 150
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show schemas;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.002 sec)
+
+MySQL [(none)]> use udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [udacity]> show tables;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| udacity           |
++-------------------+
+1 row in set (0.003 sec)
+
+MySQL [udacity]> INSERT INTO udacity VALUES ('HI WORLD');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+MySQL [udacity]> SELECT * FROM udacity;
++-------------+
+| message     |
++-------------+
+| HELLO WORLD |
++-------------+
+1 row in set (0.001 sec)
